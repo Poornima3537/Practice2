@@ -1,13 +1,14 @@
 package com.example.practice2.service;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import com.example.practice2.dto.DoctorResponse;
-import com.example.practice2.entity.Doctor;
-import com.example.practice2.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import com.example.practice2.dto.DoctorRequest;
+import com.example.practice2.dto.DoctorResponse;
+import com.example.practice2.entity.Doctor;
+import com.example.practice2.repository.DoctorRepository;
 
 @Service
 public class DoctorService {
@@ -47,8 +48,15 @@ public class DoctorService {
                 .collect(Collectors.toList());
     }
 
-    public Doctor addDoctor(Doctor doctor) {
+    public Doctor addDoctor(DoctorRequest request) {
+        Doctor doctor = new Doctor();
 
+    doctor.setName(request.getName());
+    doctor.setSpeciality(request.getSpeciality());
+    doctor.setMode(request.getMode());
+    doctor.setAvailability(request.getAvailability());
+    doctor.setExperience(request.getExperience());
+    doctor.setFees(request.getFees());
         return doctorRepository.save(doctor);
     }
 

@@ -1,21 +1,25 @@
 package com.example.practice2.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorResponse {
 
-    private Long id;
+public class DoctorRequest {
+
     private String name;
+
     private String speciality;
+
     private String mode;
+
     private Boolean availability;
+
     private Integer experience;
+
     private Double fees;
 }
