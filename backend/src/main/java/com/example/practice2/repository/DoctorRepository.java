@@ -1,9 +1,10 @@
 package com.example.practice2.repository;
 
-import com.example.practice2.entity.Doctor;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import com.example.practice2.entity.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
@@ -11,5 +12,5 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     List<Doctor> findBySpeciality(String speciality);
 
-    List<Doctor> findByAvailability(String availability);
+    List<Doctor> findByAvailability(Boolean availability);
 }
